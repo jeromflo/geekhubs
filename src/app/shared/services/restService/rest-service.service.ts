@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BodyRest } from '../../interfaces/bodyRest';
-import { take, share } from 'rxjs/operators';
+import { share } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AlertInterface } from '../../interfaces/alert';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RestServiceService {
+export class RestService {
 
   constructor(private httpClient: HttpClient, private store: Store) { }
 
@@ -22,6 +22,7 @@ export class RestServiceService {
   private suscriptorFlow(subscriptor: Observable<any>) {
     let observable = subscriptor.pipe(share());
     observable.subscribe(data => {
+      this.closeAlert();
     }, (error) => {
       error(error.toString());
     });
@@ -36,6 +37,9 @@ export class RestServiceService {
       timerProgressBar: true,
     }
     this.store.dispatch(actions.setAlert({ value: alert }));
+  }
+  closeAlert() {
+    this.store.dispatch(actions.closeAlert());
   }
   error(error: string) {
     let alert: AlertInterface = {

@@ -18,7 +18,6 @@ export class SectionBodyComponent {
       timer: 1500,
       tittle: 'Cargando',
       timerProgressBar: true,
-
     }
     this.store.dispatch(actions.setAlert({ value: alert }));
   }

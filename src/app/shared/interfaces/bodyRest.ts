@@ -1,8 +1,8 @@
 export interface BodyRest {
-    getItems: {
+    getItems?: {
         cant: number,
     }
-    getItem: {
+    getItem?: {
         id: number
     }
 }

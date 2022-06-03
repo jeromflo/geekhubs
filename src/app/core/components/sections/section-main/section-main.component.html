@@ -1,11 +1,14 @@
 <div class="card-group">
-    <div class="col-sm-4">
-        <div class="card border-white bg-dark">
-            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/424748019263995904/763daLz1_400x400.jpeg" alt="Card image cap">
+    <div class="col-sm-4 border-white d-flex " *ngFor="let item of items">
+        <div class="card  bg-dark">
+            <img class="card-img-top" src="{{item.foto}}" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h5 class="card-title">{{item.textHeader}}</h5>
+                <p class="card-text">{{item.textBody}}</p>
+
+
+                <p class="card-text"><small class="text-muted">{{item.typeAnimal}}</small></p>
+                <button type="button" (click)="addCart(item)" class="btn btn-primary align-self-end">Comprar</button>
             </div>
         </div>
     </div>

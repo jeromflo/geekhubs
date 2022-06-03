@@ -12,7 +12,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     AppRoutingModule,
     ComponentsModule,
-    ReduxModule
+    ReduxModule,
+
   ],
   exports: [ReduxModule, ComponentsModule, AppRoutingModule
   ]
