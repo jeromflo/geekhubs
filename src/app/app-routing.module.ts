@@ -1,3 +1,4 @@
+import { CarritoGuard } from './shared/guards/carrito.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionBodyComponent } from './core/components/sections/section-body/section-body.component';
@@ -11,7 +12,7 @@ const routes: Routes = [
       { path: '', outlet: 'content-body', component: SectionMainComponent }]
   },
   {
-    path: 'myCart', component: SectionBodyComponent, children: [
+    path: 'myCart', component: SectionBodyComponent, canActivate: [CarritoGuard], children: [
       { path: '', outlet: 'content-body', component: SectionCartComponent }]
   },
 
