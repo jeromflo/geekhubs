@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SectionBodyComponent } from './section-body/section-body.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { LayoutsModule } from 'src/app/layouts/layouts.module';
+import { SectionMainComponent } from './section-main/section-main.component';
 
 
 
 @NgModule({
   declarations: [
-    SectionBodyComponent
+    SectionBodyComponent,
+    SectionMainComponent
   ],
   imports: [
     BrowserModule,
