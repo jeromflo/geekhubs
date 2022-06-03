@@ -14,7 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ComponentsModule,
     ReduxModule
   ],
-  exports: [ReduxModule, AppRoutingModule, ComponentsModule
+  exports: [ReduxModule, ComponentsModule, AppRoutingModule
   ]
 })
 export class SharedModule { }

@@ -4,5 +4,5 @@ export interface Environment {
     api: EndPoints
 }
 interface EndPoints {
-
+    getItems: string
 }

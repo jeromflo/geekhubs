@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
-    SectionsModule,
     TemplatesModule
   ],
-  exports: []
+  exports: [SectionsModule, TemplatesModule]
 })
 export class ComponentsModule { }

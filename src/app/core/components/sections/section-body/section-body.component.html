@@ -1,2 +1,16 @@
 <app-layout-header></app-layout-header>
-<router-outlet name="content-body"></router-outlet>
+<div class="container mt-1">
+
+    <div class="card" class="w-100  shadow-sm bg-dark  text-white">
+        <div class="card-body">
+            <!--         <h5 class="card-title">Card title</h5>
+ -->
+
+            <router-outlet name="content-body"></router-outlet>
+            <!--             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+ </p>-->
+        </div>
+    </div>
+</div>
+<button (click)="sendAlert()">sendAlert</button>
+<app-alert></app-alert>
