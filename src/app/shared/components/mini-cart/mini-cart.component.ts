@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Item } from '../../interfaces/item';
 
@@ -8,8 +9,8 @@ import { Item } from '../../interfaces/item';
   styleUrls: ['./mini-cart.component.css']
 })
 export class MiniCartComponent {
-  private items: Item[] = [];
-  constructor(private store: Store<{ cart: Item[] }>) {
+  public items: Item[] = [];
+  constructor(private router: Router, private store: Store<{ cart: Item[] }>) {
     this.store.select('cart').subscribe(cart => {
       this.items = cart;
     })
@@ -17,6 +18,8 @@ export class MiniCartComponent {
   getLenth() {
     return this.items.length;
   }
-
+  verCarrito() {
+    this.router.navigate(['/myCart']);
+  }
 
 }

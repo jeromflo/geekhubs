@@ -5,6 +5,7 @@ import { LayoutsModule } from 'src/app/layouts/layouts.module';
 import { SectionMainComponent } from './section-main/section-main.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SectionCartComponent } from './section-cart/section-cart.component';
 
 
 
@@ -12,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     SectionBodyComponent,
     SectionMainComponent,
+    SectionCartComponent,
   ],
   imports: [
     CommonModule,
