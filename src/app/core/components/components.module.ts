@@ -1,3 +1,4 @@
+import { TemplatesModule } from './templates/templates.module';
 import { SectionsModule } from './sections/sections.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,8 +9,9 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule,
-    SectionsModule
+    SectionsModule,
+    TemplatesModule
   ],
-  exports: [SectionsModule]
+  exports: []
 })
 export class ComponentsModule { }

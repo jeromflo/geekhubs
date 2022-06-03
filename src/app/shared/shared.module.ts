@@ -1,7 +1,8 @@
-import { AppRoutingModule } from './../app-routing.module';
 import { ReduxModule } from './redux/redux.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentsModule } from './components/components.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -10,10 +11,10 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     AppRoutingModule,
-
+    ComponentsModule,
     ReduxModule
   ],
-  exports: [ReduxModule, AppRoutingModule,
+  exports: [ReduxModule, AppRoutingModule, ComponentsModule
   ]
 })
 export class SharedModule { }

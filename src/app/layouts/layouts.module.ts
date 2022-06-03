@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutHeaderComponent } from './layout-header/layout-header.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -9,7 +10,7 @@ import { LayoutHeaderComponent } from './layout-header/layout-header.component';
     LayoutHeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, SharedModule
   ],
   exports: [LayoutHeaderComponent]
 })
