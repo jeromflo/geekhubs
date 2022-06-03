@@ -7,6 +7,7 @@ import { RestService } from 'src/app/shared/services/restService/rest-service.se
 import { environment } from 'src/environments/environment';
 import { BodyRest } from 'src/app/shared/interfaces/bodyRest';
 import { addCart } from 'src/app/shared/redux/actions/cart.actions';
+import { down, up } from 'src/app/shared/redux/actions/pagination.actions';
 
 @Component({
   selector: 'app-section-main',
@@ -15,29 +16,33 @@ import { addCart } from 'src/app/shared/redux/actions/cart.actions';
 })
 export class SectionMainComponent {
   public items: Item[] = [];
-  constructor(private restService: RestService, private store: Store) {
-    const url = `${environment.urlApi}${environment.api.getItems}`;
-    const body: BodyRest = {
-      getItems: { cant: 10 }
-    }
-    this.restService.post(url, body).subscribe(el => {
-      console.log(el);
+  position: number = 0;;
+  constructor(private restService: RestService, private store: Store<{ pagination: number }>) {
+    this.store.select('pagination').subscribe(pagination => {
+      this.position = pagination
+      const url = `${environment.urlApi}${environment.api.getItems}`;
+      const body: BodyRest = {
+        getItems: { cant: 6 }
+      }
+      this.restService.post(url, body).subscribe(el => {
+        console.log(el);
 
-      this.items = el;
+        this.items = el;
 
-    });
+      });
+    })
+
 
   }
 
   addCart(el: Item) {
-    /*  let alert: AlertInterface = {
-       icon: 'success',
-       timer: 1500,
-       tittle: 'Añadido al carrito',
-       timerProgressBar: true,
-     }
-     this.store.dispatch(actions.setAlert({ value: alert })); */
     this.store.dispatch(addCart({ value: el }))
   }
+  next() {
+    this.store.dispatch(up());
+  }
+  back() {
+    this.store.dispatch(down());
 
+  }
 }

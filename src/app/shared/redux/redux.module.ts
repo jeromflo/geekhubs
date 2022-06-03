@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { alertReducer } from './reducers/alert.reducer';
 import { cartReducer } from './reducers/cart.reducer';
+import { paginationReducer } from './reducers/pagination.reducer';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { cartReducer } from './reducers/cart.reducer';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot({
       alert: alertReducer,
-      cart: cartReducer
+      cart: cartReducer,
+      pagination: paginationReducer
     },
 
       {})
