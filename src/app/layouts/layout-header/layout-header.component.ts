@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './layout-header.component.html',
   styleUrls: ['./layout-header.component.css']
 })
-export class LayoutHeaderComponent implements OnInit {
+export class LayoutHeaderComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
