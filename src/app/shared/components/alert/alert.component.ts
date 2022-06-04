@@ -22,6 +22,7 @@ export class AlertComponent {
   }
 
   simpleAlert(menssage: AlertInterface) {
+
     Swal.fire({
       position: 'center',
       icon: menssage.icon,
@@ -30,11 +31,7 @@ export class AlertComponent {
       showCancelButton: menssage.showCancelButton, // There won't be any cancel button
       showConfirmButton: menssage.showConfirmButton, // There won't be any confirm button
       timerProgressBar: menssage.timerProgressBar,//si tiene timer pone la barra de progreso
-
     });
-    setTimeout(() => {
-      this.closeAlert();
-    }, menssage.timer);
   }
   closeAlert() {
     Swal.close();

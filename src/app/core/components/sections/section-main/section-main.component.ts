@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { BodyRest } from 'src/app/shared/interfaces/bodyRest';
 import { addCart } from 'src/app/shared/redux/actions/cart.actions';
 import { down, up } from 'src/app/shared/redux/actions/pagination.actions';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-section-main',
@@ -16,7 +17,8 @@ import { down, up } from 'src/app/shared/redux/actions/pagination.actions';
 })
 export class SectionMainComponent {
   public items: Item[] = [];
-  position: number = 0;;
+  position: number = 0;
+  disabledButton: boolean | null = null;
   constructor(private restService: RestService, private store: Store<{ pagination: number }>) {
     this.store.select('pagination').subscribe(pagination => {
       this.position = pagination
@@ -24,11 +26,11 @@ export class SectionMainComponent {
       const body: BodyRest = {
         getItems: { cant: 6 }
       }
+      this.disabledButton = true;
+
       this.restService.post(url, body).subscribe(el => {
-        console.log(el);
-
         this.items = el;
-
+        this.disabledButton = null;
       });
     })
 
@@ -45,4 +47,5 @@ export class SectionMainComponent {
     this.store.dispatch(down());
 
   }
+
 }

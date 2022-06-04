@@ -8,13 +8,13 @@
 
 
                 <p class="card-text"><small class="text-muted">{{item.typeAnimal}}</small></p>
-                <button (click)="addCart(item)" class="btn btn-primary align-self-end">Comprar</button>
+                <button (click)="addCart(item)" class="btn btn-primary align-self-end" [disabled]="disabledButton">Comprar</button>
             </div>
         </div>
     </div>
 </div>
 <div *ngIf="items.length>0" class="d-flex justify-content-evenly">
-    <button (click)="back()" [ngClass]="{'btn btn-primary col-sm-4 invisible':position===0,'btn btn-primary col-sm-4 ':position!==0}"><i
-            class="fas fa-step-backward"></i> Back </button>
-    <button (click)="next()" class="btn btn-primary col-sm-4">Next <i class="fas fa-step-forward"></i></button>
+    <button (click)="back()" [ngClass]="{'btn btn-primary col-sm-4 invisible':position===0,'btn btn-primary col-sm-4 ':position!==0}" [disabled]="disabledButton"><i class="fas fa-step-backward"></i> Back </button>
+    <button (click)="next()" class="btn btn-primary col-sm-4" [disabled]="disabledButton">Next <i
+            class="fas fa-step-forward"></i></button>
 </div>

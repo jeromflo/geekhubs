@@ -1,6 +1,6 @@
 import * as actions from './../../redux/actions/alert.actions';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BodyRest } from '../../interfaces/bodyRest';
 import { share } from 'rxjs/operators';
@@ -22,9 +22,11 @@ export class RestService {
   private suscriptorFlow(subscriptor: Observable<any>) {
     let observable = subscriptor.pipe(share());
     observable.subscribe(data => {
+      console.log('entrando')
       this.closeAlert();
-    }, (error) => {
-      error(error.toString());
+    }, (error: HttpErrorResponse) => {
+      console.log(error)
+      this.error(`Error con status: ${error.status}\n  Por favor contacte con IT `);
     });
     return observable;
   }
@@ -32,7 +34,7 @@ export class RestService {
   private cargando() {
     let alert: AlertInterface = {
       icon: 'info',
-      timer: 1500,
+      /*   timer: 1500, */
       tittle: 'Cargando',
       timerProgressBar: true,
     }
@@ -44,7 +46,7 @@ export class RestService {
   error(error: string) {
     let alert: AlertInterface = {
       icon: 'error',
-      timer: 1500,
+      timer: 2000,
       tittle: error,
       timerProgressBar: true,
     }

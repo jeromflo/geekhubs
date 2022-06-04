@@ -7,7 +7,7 @@ export const setAlert = createAction(
 );
 
 export const closeAlert = createAction(
-    '[alert] closeAlert'
+    '[alert] close'
 );
 
 
