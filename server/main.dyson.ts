@@ -7,7 +7,6 @@ module.exports = [
         method: "POST",
         secure: false,
         template: (params: any, query: any, body: any): any[] => {
-            console.log(body);
             let items: any[] = [];
             if (body !== undefined) {
                 for (let i = 0; i < body.getItems!.cant; i++) {
@@ -33,7 +32,6 @@ module.exports = [
         method: "POST",
         secure: false,
         template: (params: any, query: any, body: any): any => {
-            console.log(body);
             let item = {
                 id: faker.random.numeric(),
                 foto: faker.image.cats(),

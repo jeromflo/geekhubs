@@ -20,8 +20,6 @@ const reducer = createReducer(
         copy.timerProgressBar = prop.value.timerProgressBar;
         copy.showCancelButton = prop.value.showCancelButton;
         copy.showConfirmButton = prop.value.showConfirmButton;
-        console.log(copy);
-
         return copy;
     }),
     on(actions.closeAlert, (state) => ({ close: true })),
