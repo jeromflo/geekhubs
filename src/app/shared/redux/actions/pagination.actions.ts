@@ -1,5 +1,7 @@
 import { createAction } from '@ngrx/store';
-
+/**
+ * logica para la paginazacion
+ */
 export const up = createAction(
     '[pagination] up',
 

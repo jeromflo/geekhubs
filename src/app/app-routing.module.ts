@@ -15,10 +15,7 @@ const routes: Routes = [
     path: 'myCart', component: SectionBodyComponent, canActivate: [CarritoGuard], children: [
       { path: '', outlet: 'content-body', component: SectionCartComponent }]
   },
-
   { path: '', pathMatch: 'full', redirectTo: '/mainPage' },
-  /*   { path: 'path', component: SectionBodyComponent },
-   */
   { path: '**', component: NotFoundComponent }];
 
 @NgModule({

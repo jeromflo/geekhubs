@@ -1,5 +1,7 @@
 import { createAction } from '@ngrx/store';
-
+/**
+ * actions para la logica de los botones
+ */
 export const disabledButton = createAction(
     '[disabledButton] disabledButton'
 );

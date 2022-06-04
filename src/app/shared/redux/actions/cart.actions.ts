@@ -1,6 +1,8 @@
 import { Item } from './../../interfaces/item';
 import { createAction, props } from '@ngrx/store';
-
+/**
+ * actions para la logica del carrito
+ */
 export const addCart = createAction(
     '[cart] addCart',
     props<{ value: Item }>()
