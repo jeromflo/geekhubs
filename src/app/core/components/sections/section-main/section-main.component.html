@@ -1,2 +1,2 @@
-<app-cards-groups [items]="items" [disabled]="disabledButton" [textButton]="'Comprar'"></app-cards-groups>
+<app-cards-groups (handlcerClick)="addCart($event)" [items]="items" [disabled]="disabledButton" [textButton]="'Comprar'"></app-cards-groups>
 <app-layout-navegation *ngIf="items.length>0"></app-layout-navegation>
