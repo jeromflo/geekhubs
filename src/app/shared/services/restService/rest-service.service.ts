@@ -37,10 +37,10 @@ export class RestService {
     }
     this.store.dispatch(actions.setAlert({ value: alert }));
   }
-  closeAlert() {
+  private closeAlert() {
     this.store.dispatch(actions.closeAlert());
   }
-  error(error: string) {
+  private error(error: string) {
     let alert: AlertInterface = {
       icon: 'error',
       timer: 2000,
