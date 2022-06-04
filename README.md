@@ -16,7 +16,10 @@ Para usar el nvm: - instalar nvm de google - ejecutar #nvm install 14.17.6 //est
 
 Para instalar la versión de npm //es importante que se haga después del nvm ya que node puede cambiarnos la versión del npm - npm i -g npm@6.14.15
 
-Estructura de las carpetas: - app: contendra toda la logica de la aplicacion - core: componentes principales que se iran renderizando en las distintas pantallas - layouts: componentes estatico en el template entre pantallas
--shared: componentes, servicios, pipes, etc que la aplicacion use y sea comun entre la carpeta core.
+Estructura de las carpetas:
+    - app: contendra toda la logica de la aplicacion 
+        - core: componentes principales que se iran renderizando en las distintas pantallas 
+        - layouts: componentes estatico en el template entre pantallas
+        -shared: componentes, servicios, pipes, etc que la aplicacion use y sea comun entre la carpeta core.
 
 El proyecto esta configurado para el environment de desarrollo y prod, para otros entornos, habria que añadirlo al angular.json y lanzarlo en el ng serve o build como se dice arriba "[1]"
