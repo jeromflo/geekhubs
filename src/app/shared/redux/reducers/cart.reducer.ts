@@ -14,7 +14,9 @@ const featureReducer = createReducer(
         copy.push(prop.value);
         return copy;
     }), on(actions.remove, (state, { value }) => {
-        return state.filter((el: Item) => el.id !== value);
+
+        let position = state.findIndex(item => item.id === value);
+        return state.filter((item: Item, index: number) => index !== position); //se usa el filter, en vez del splice, por el splice muta el estado, ademas no comprobamos que la position sea negativa, por que aunque lo sea, no va a fallar
     }), on(actions.reset, state => initialState)
 
 );

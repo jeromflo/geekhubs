@@ -4,7 +4,7 @@
 <app-cards-groups [items]="items ">
 
     <ng-template #button let-context>
-        <button class="btn btn-xs btn-danger " type="button "><span style="color:white "><i
-                    class="fas fa-cart-arrow-down "></i></span></button>
+        <button (click)="deleteElement(context)" class="btn btn-xs btn-danger " type="button "><span
+                style="color:white "><i class="fas fa-cart-arrow-down "></i></span></button>
     </ng-template>
 </app-cards-groups>

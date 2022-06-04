@@ -22,10 +22,8 @@ export class RestService {
   private suscriptorFlow(subscriptor: Observable<any>) {
     let observable = subscriptor.pipe(share());
     observable.subscribe(data => {
-      console.log('entrando')
       this.closeAlert();
     }, (error: HttpErrorResponse) => {
-      console.log(error)
       this.error(`Error con status: ${error.status}\n  Por favor contacte con IT `);
     });
     return observable;
@@ -34,7 +32,6 @@ export class RestService {
   private cargando() {
     let alert: AlertInterface = {
       icon: 'info',
-      /*   timer: 1500, */
       tittle: 'Cargando',
       timerProgressBar: true,
     }
