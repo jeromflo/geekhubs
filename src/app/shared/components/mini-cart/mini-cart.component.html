@@ -6,8 +6,10 @@
         <!-- style="padding:15px 25px" -->
         <ng-container *ngFor="let item of items;let i=index">
             <li class=" d-flex justify-content-between px-4">
-                <div class="col-sm-10">{{item.textHeader}}</div>
-                <span style="color:red"><i class="fas fa-cart-arrow-down"></i></span><span class="badge badge-pill badge-danger">dejar </span>
+                <div class="col-sm-10 align-self-center">{{item.textHeader}}</div>
+                <button class="btn btn-xs btn-danger rounded-circle  px-2" type="button"><span style="color:white"><i
+                            class="fas fa-cart-arrow-down"></i></span></button>
+                <!-- <span class="badge badge-pill badge-danger">dejar </span> -->
             </li>
 
             <div *ngIf="i!==getLenth()-1" class="dropdown-divider"></div>
