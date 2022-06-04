@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { AlertInterface } from '../../interfaces/alert';
+import { alertReducer } from '../../redux/reducers/alert.reducer';
 
 import { AlertComponent } from './alert.component';
 
@@ -8,9 +11,14 @@ describe('AlertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlertComponent ]
+      imports: [
+        StoreModule.forRoot({
+          alert: alertReducer
+        })
+      ], providers: [Store],
+      declarations: [AlertComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -20,6 +28,14 @@ describe('AlertComponent', () => {
   });
 
   it('should create', () => {
+    let alert: AlertInterface = {
+      icon: 'info',
+      tittle: 'Cargando',
+      timerProgressBar: true,
+    }
+    component.simpleAlert(alert);
+    component.closeAlert();
     expect(component).toBeTruthy();
   });
+  xit('')
 });

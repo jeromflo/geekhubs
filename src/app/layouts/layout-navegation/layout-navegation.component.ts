@@ -1,9 +1,5 @@
-import * as actionsDisabledButton from './../../shared/redux/actions/disabledButton.actions';
-import { environment } from 'src/environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { RestService } from 'src/app/shared/services/restService/rest-service.service';
-import { BodyRest } from 'src/app/shared/interfaces/bodyRest';
 import { down, up } from 'src/app/shared/redux/actions/pagination.actions';
 
 @Component({
@@ -14,7 +10,7 @@ import { down, up } from 'src/app/shared/redux/actions/pagination.actions';
 export class LayoutNavegationComponent {
   position: number = 0;
   disabledButton: true | null = null;
-  constructor(private restService: RestService, private store: Store<{ pagination: number, disabledButton: boolean }>) {
+  constructor(private store: Store<{ pagination: number, disabledButton: boolean }>) {
     this.store.select('pagination').subscribe(pagination => {
       this.position = pagination
     })

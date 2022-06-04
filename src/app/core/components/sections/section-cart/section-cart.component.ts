@@ -24,11 +24,8 @@ export class SectionCartComponent {
   deleteElement(item: Item) {
     this.store.dispatch(remove({ value: item.id }))
   }
-  getCssButton() {
-    return `  <span style="color:white"><i
-                            class="fas fa-cart-arrow-down"></i></span>`
-  }
-  goBack() {
+
+  private goBack() {
     if (this.items.length === 0) {
       this.router.navigate(['/mainPage']);
     }

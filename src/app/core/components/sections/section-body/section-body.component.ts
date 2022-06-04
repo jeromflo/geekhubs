@@ -10,16 +10,8 @@ import { AlertInterface } from 'src/app/shared/interfaces/alert';
 })
 export class SectionBodyComponent {
 
-  constructor(private store: Store) { }
+  constructor() { }
 
-  sendAlert() {
-    let alert: AlertInterface = {
-      icon: 'success',
-      timer: 1500,
-      tittle: 'Cargando',
-      timerProgressBar: true,
-    }
-    this.store.dispatch(actions.setAlert({ value: alert }));
-  }
+
 
 }

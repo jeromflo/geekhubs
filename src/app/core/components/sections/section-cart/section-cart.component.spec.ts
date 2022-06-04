@@ -1,4 +1,9 @@
+import { addCart } from './../../../../shared/redux/actions/cart.actions';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { routes } from 'src/app/app-routing.module';
+import { cartReducer } from 'src/app/shared/redux/reducers/cart.reducer';
 
 import { SectionCartComponent } from './section-cart.component';
 
@@ -8,9 +13,14 @@ describe('SectionCartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SectionCartComponent ]
+      imports: [RouterTestingModule.withRoutes(routes),
+      StoreModule.forRoot({
+        cart: cartReducer
+      })
+      ], providers: [Store],
+      declarations: [SectionCartComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +31,21 @@ describe('SectionCartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('deleteElement(item)', () => {
+    const store = TestBed.inject(Store);
+    const item = {
+      id: 1,
+      foto: '',
+      textHeader: '',
+      textBody: '',
+      typeAnimal: ''
+    }
+    store.dispatch(addCart({ value: item }))
+    expect(component.items.length).toBe(1);
+
+    component.deleteElement(item);
+    expect(component.items.length).toBe(0);
+
   });
 });
