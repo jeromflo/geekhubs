@@ -11,7 +11,11 @@
 
 
                     <p class="card-text"><small class="text-muted">{{item.typeAnimal}}</small></p>
-                    <button *ngIf="textButton!==''" (click)="clickMe(item)" [class]="cssButton" [disabled]="disabled" [innerHTML]="textButton"></button>
+                    <ng-container *ngIf="button" [ngTemplateOutletContext]="{ $implicit:item }" [ngTemplateOutlet]="button"></ng-container>
+
+
+                    <!--                     <button *ngIf="textButton!==''" (click)="clickMe(item)" [class]="cssButton" [disabled]="disabled" [innerHTML]="textButton"></button>
+ -->
                 </div>
             </ng-template>
         </app-cards>
