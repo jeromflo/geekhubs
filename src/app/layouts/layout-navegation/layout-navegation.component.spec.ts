@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
+import { disabledButton } from 'src/app/shared/redux/actions/disabledButton.actions';
 import { disabledButtonReducer } from 'src/app/shared/redux/reducers/disabledButton.reducer';
 import { paginationReducer } from 'src/app/shared/redux/reducers/pagination.reducer';
 
@@ -42,6 +43,12 @@ describe('LayoutNavegationComponent', () => {
     component.back();
 
     expect(component.position).toBe(1);
+
+  });
+  it('disabled true', () => {
+    const store = TestBed.inject(Store);
+    store.dispatch(disabledButton())
+    expect(component).toBeTruthy();
 
   });
 });

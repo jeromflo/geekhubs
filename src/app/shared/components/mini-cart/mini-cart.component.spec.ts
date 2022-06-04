@@ -30,6 +30,7 @@ describe('MiniCartComponent', () => {
   });
 
   it('should create', () => {
+    component.verCarrito();
     expect(component).toBeTruthy();
   });
   it('items 0', () => {
@@ -57,7 +58,7 @@ describe('MiniCartComponent', () => {
       typeAnimal: ''
     }
     store.dispatch(addCart({ value: item }))
-    store.dispatch(remove({ value: item.id }))
+    component.deleteElement(item)
     expect(component.getLenth()).toBe(0);
   });
 });

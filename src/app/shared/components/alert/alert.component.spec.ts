@@ -1,3 +1,4 @@
+import { closeAlert, setAlert } from './../../redux/actions/alert.actions';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { AlertInterface } from '../../interfaces/alert';
@@ -33,8 +34,9 @@ describe('AlertComponent', () => {
       tittle: 'Cargando',
       timerProgressBar: true,
     }
-    component.simpleAlert(alert);
-    component.closeAlert();
+    const store = TestBed.inject(Store);
+    store.dispatch(setAlert({ value: alert }));
+    store.dispatch(closeAlert());
     expect(component).toBeTruthy();
   });
   xit('')

@@ -46,4 +46,14 @@ describe('RestServiceService', () => {
       expect(error.status).toBe(400);
     })
   })
+  it('suscriptorFlow() without error', () => {
+    let observable = new Observable(observer => { observer.next(''); });
+    //@ts-ignore
+    expect(service.suscriptorFlow(observable)).toBeInstanceOf(Observable);
+  })
+  it('suscriptorFlow() with  error', () => {
+    let observable = new Observable(observer => { observer.error(''); });
+    //@ts-ignore
+    expect(service.suscriptorFlow(observable)).toBeInstanceOf(Observable);
+  })
 });
