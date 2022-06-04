@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { alertReducer } from './reducers/alert.reducer';
 import { cartReducer } from './reducers/cart.reducer';
 import { paginationReducer } from './reducers/pagination.reducer';
+import { disabledButtonReducer } from './reducers/disabledButton.reducer';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { paginationReducer } from './reducers/pagination.reducer';
     StoreModule.forRoot({
       alert: alertReducer,
       cart: cartReducer,
-      pagination: paginationReducer
+      pagination: paginationReducer,
+      disabledButton: disabledButtonReducer
     },
 
       {})

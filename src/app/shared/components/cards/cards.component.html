@@ -1,1 +1,11 @@
-<p>cards works!</p>
+<div class="card  bg-dark">
+    <ng-container *ngIf="cardHeader" [ngTemplateOutlet]="cardHeader"></ng-container>
+    <div *ngIf="!cardBody" class="card-body d-flex flex-column">
+        <ng-container *ngIf="tittle" [ngTemplateOutlet]="tittle"></ng-container>
+        <ng-container *ngIf="textBody" [ngTemplateOutlet]="textBody"></ng-container>
+        <ng-container *ngIf="textMini" [ngTemplateOutlet]="textMini"></ng-container>
+        <ng-container *ngIf="bottom" [ngTemplateOutlet]="bottom"></ng-container>
+    </div>
+    <ng-container *ngIf="cardBody" [ngTemplateOutlet]="cardBody"></ng-container>
+
+</div>

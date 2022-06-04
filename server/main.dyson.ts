@@ -25,7 +25,7 @@ module.exports = [
             return items;
             /*             faker.image.
  */        },
-        delay: 4000,
+        delay: 1000,
     },
     {
         cache: false,
