@@ -31,6 +31,7 @@ describe('MiniCartComponent', () => {
 
   it('should create', () => {
     component.verCarrito();
+    component.ngOnDestroy()
     expect(component).toBeTruthy();
   });
   it('items 0', () => {

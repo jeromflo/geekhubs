@@ -22,6 +22,7 @@ describe('CarritoGuard', () => {
   });
 
   it('should be created', () => {
+    guard.ngOnDestroy()
     expect(guard).toBeTruthy();
   });
   it('canActivate witouth items be false', () => {

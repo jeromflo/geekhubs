@@ -37,6 +37,7 @@ describe('AlertComponent', () => {
     const store = TestBed.inject(Store);
     store.dispatch(setAlert({ value: alert }));
     store.dispatch(closeAlert());
+    component.ngOnDestroy()
     expect(component).toBeTruthy();
   });
   xit('')

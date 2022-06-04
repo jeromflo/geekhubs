@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AlertInterface } from '../../interfaces/alert';
 import Swal from 'sweetalert2'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent {
+export class AlertComponent implements OnDestroy {
+  private susbcription: Subscription[] = [];
 
   constructor(private store: Store<{ alert: AlertInterface }>) {
 
-    this.store.select('alert').subscribe((alert: AlertInterface) => {
+    this.susbcription[0] = this.store.select('alert').subscribe((alert: AlertInterface) => {
       if (alert.close) {
         this.closeAlert();
       } else {
@@ -20,7 +22,10 @@ export class AlertComponent {
       }
     })
   }
+  ngOnDestroy(): void {
 
+    this.susbcription.forEach(s => s.unsubscribe());
+  }
   simpleAlert(menssage: AlertInterface) {
 
     Swal.fire({

@@ -30,6 +30,7 @@ describe('SectionCartComponent', () => {
   });
 
   it('should create', () => {
+    component.ngOnDestroy()
     expect(component).toBeTruthy();
   });
   it('deleteElement(item)', () => {

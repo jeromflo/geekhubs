@@ -38,6 +38,7 @@ describe('SectionMainComponent', () => {
   it('should create', () => {
     component.next();
     component.back();
+    component.ngOnDestroy()
     expect(component).toBeTruthy();
   });
   it('addCart() items 1', () => {
