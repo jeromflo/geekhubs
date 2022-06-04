@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MiniCartComponent } from './mini-cart.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { cartReducer } from '../../redux/reducers/cart.reducer';
-import { addCart, remove } from '../../redux/actions/cart.actions';
+import { addCart } from '../../redux/actions/cart.actions';
 
 describe('MiniCartComponent', () => {
   let component: MiniCartComponent;
